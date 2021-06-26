@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText txtid, txtnombre, txtlongitud, txtlatitud, txtpoblacion;
     private TextView resultado;
     private Button btnguardar, btnlistar;
+    private ListView lvdatos;
 
 
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resultado = findViewById(R.id.txtresultado);
         btnguardar.setOnClickListener(this);
         btnlistar.setOnClickListener(this);
+        lvdatos = findViewById(R.id.ListViewid);
 
     }
 
@@ -51,8 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pai.add(paises);
 
                 db.InsertPais(db.getWritableDatabase(), paises);
+                ArrayAdapter<Paises> adapter = new ArrayAdapter<Paises>(MainActivity.this, android.R.layout.simple_expandable_list_item_1, pai);
+                lvdatos.setAdapter(adapter);
                 limpiarCampos();
-                resultado.setText(pai.toString());
+                //resultado.setText(pai.toString());
                // for (Paises paislista : pai){
                     //System.out.println("El Id es: "+paislista.getId()+"\nEl Nombre es: "+paislista.getNombre());
                    // resultado.setText("El Id es: "+paislista.getId()+"\nEl Nombre es: "+paislista.getNombre());

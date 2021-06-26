@@ -23,13 +23,13 @@ public class Paises {
 
     @Override
     public String toString() {
-        return "Paises{" +
+        return "Paises:" +
                 "Id=" + Id +
-                ", Nombre='" + Nombre + '\'' +
-                ", Longitud=" + Longitud +
-                ", Latitud=" + Latitud +
-                ", Poblacion=" + Poblacion +
-                '}';
+                " Nombre=" + Nombre + '\'' +
+                " Longitud=" + Longitud +
+                " Latitud=" + Latitud +
+                " Poblacion=" + Poblacion
+                ;
     }
 
     public int getId() {
